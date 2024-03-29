@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+button > svg {
+  color: black;
+  margin-right: 5px;
+}
