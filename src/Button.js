@@ -1,3 +1,4 @@
+// Used classnames library to decide on the layout of the button variations -i.e if button is primary/secondary/warning/success/rounded/danger/outline what styles/classes to show etc
 import className from 'classnames';
 
 function Button({
@@ -28,6 +29,7 @@ function Button({
   return <button className={classes}>{children}</button>;
 }
 
+// Used propTypes library to show warnings if we passed two variations like primary and secondary at the same time on a Button component. We can only pass one from the list - primary, secondary, success, warning, danger
 Button.propTypes = {
   checkVariationValue: ({ primary, secondary, success, warning, danger }) => {
     const count =
