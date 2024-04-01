@@ -4,10 +4,14 @@ import Button from "./Button";
 // console.log(GoIcons);
 
 function App() {
+  const handleClick = () => {
+    console.log('Click!!');
+  };
+
   return (
     <div>
       <div>
-        <Button success outline rounded>
+        <Button success outline rounded className="mb-5" onClick={handleClick}>
           <GoBellFill />
           Click Me
         </Button>
