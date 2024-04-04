@@ -11,7 +11,7 @@ function Dropdown({ options, value, onChange }) {
     }
 
     document.addEventListener('click', handler, true);
-  });
+  }, []);
 
   const handleClick = () => {
     setIsOpen(!isOpen);
