@@ -1,6 +1,6 @@
 import { GoBellFill, GoCheckCircle, GoEye } from "react-icons/go";
 // import * as GoIcons from "react-icons/go";
-import Button from "./components/Button";
+import Button from "../components/Button";
 // console.log(GoIcons);
 
 function ButtonPage() {
