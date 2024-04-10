@@ -21,7 +21,7 @@ function ModalPage() {
 
   const modal = (
     <Modal onClose={handleClose} actionBar={actionBar}>
-      <p>Here is an important agreement for you to accept</p>
+      <p className="pb-28">Here is an important agreement for you to accept</p>
     </Modal>
   );
 
