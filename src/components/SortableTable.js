@@ -4,7 +4,7 @@ import Table from "./Table";
 function SortableTable (props) {
   const [sortOrder, setSortOrder] = useState(null);
   const [sortBy, setSortBy] = useState(null);
-  const { config } = props;
+  const { config,data } = props;
 
   const handleClick = (label) => {
     if (sortOrder === null) {
@@ -30,10 +30,34 @@ function SortableTable (props) {
     }
   });
 
-  return <div>
+  // Only sort data if sortOrder && sortBy are not null
+  // Make a copy of the 'data' prop
+  // Find the correct sortValue function and use it for sorting
+
+  let sortedData = data;
+  if (sortOrder && sortBy) {
+    const {sortValue } = config.find(column => column.label === sortBy);
+    sortedData = [...data].sort((a, b) => {
+      const valueA = sortValue(a);
+      const ValueB = sortValue(b);
+
+      const reverseOrder = sortOrder === 'asc' ? 1 : -1;
+
+      if (typeof valueA === 'string'){
+        return valueA.localeCompare(ValueB) * reverseOrder;
+      } else {
+        return (valueA - ValueB) * reverseOrder;
+      }
+    });
+  }
+
+
+  return (
+    <div>
       {sortOrder} - {sortBy}
-      <Table {...props} config={updatedConfig} />
+      <Table {...props} data={sortedData} config={updatedConfig} />
     </div>
+  );
 }
 
 export default SortableTable;
